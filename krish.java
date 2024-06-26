@@ -1,0 +1,83 @@
+import java.util.*;
+class random
+{
+    public static void main(String args[])
+    {
+      Scanner sc=new Scanner(System.in);
+      int a,m,n,r,j,z=1;
+      int score=0,play=0;
+      while(z==1){
+        m=0;
+        n=6;
+        System.out.println("This is guessing game.\nI will generate a RANDOM number between 1 to 100 and you have to guess it.\nYou have 6 lifes.\n Best of luck.");
+        System.out.println("Enter your Number");
+        a=sc.nextInt();
+        int random = ((int)(Math.random()*100))+1;
+      while (m!=1 && n>1){
+        if(a==random){
+            m=1;
+            System.out.println("The number was actually =>"+random);
+            System.out.println("CONGRATULATIONS \nYou WON....YOU BEAT ME IN MY OWN GAME");
+            score=score+1;
+        }
+        else if(a<random){
+            if(n==3){
+                System.out.println("Number is bigger than your expectation");
+                System.out.println("You lost a Chance");
+                System.out.println("You only have "+(n-1)+" life left=");
+                --n;
+                r=random-5;
+                j=random+5;
+                System.out.println("Here a tip. The number is greater than "+r+" and less than "+j );
+                System.out.println("Try  Again");
+                a=sc.nextInt();
+            }
+            else{
+            System.out.println("Number is bigger than your expectation");
+            System.out.println("You lost a Chance");       
+           System.out.println("life left="+(n-1)+"\nTry  Again");
+            --n;
+            a=sc.nextInt();
+        }}
+        
+        else{
+            if(n==3){
+                System.out.println("Number is Smaller than your expectation");
+                System.out.println("You lost a Chance");
+                
+                System.out.println("Be Carefull....You only have "+(n-1)+" lifes left...");
+                --n;
+                r=random-5;
+                j=random+5;
+                System.out.println("Here is a tip. The number is greater than "+r+" and less than "+j );
+                System.out.println("Try  Again");
+                a=sc.nextInt();
+            }
+            else{
+            System.out.println("Number is Smaller than your expectation");
+            System.out.println("You lost a Chance");
+            
+            System.out.println("life left="+(n-1)+"\nTry  Again");
+            --n;
+            a=sc.nextInt(); 
+        }}
+      }
+     if(m!=1){
+        if(a!=random){
+        System.out.println("The number was actually =>"+random);
+        System.out.println("Better Luck Next Time");  
+    }
+
+    else { 
+    System.out.println("The number was actually =>"+random);
+    System.out.println("CONGRATULATIONS \nYou WON....YOU BEAT ME IN MY OWN GAME");
+    score=score+1;
+        }}
+    System.out.println("ENTER 1 if you want to play again else enter 0");
+    z=sc.nextInt();
+    play=play+1;
+    }
+    System.out.println("AWESOME\nYOU PLAYED "+play+" TIMES.");
+    System.out.println("AND YOU WON "+score+"TIMES.");
+    }
+}
