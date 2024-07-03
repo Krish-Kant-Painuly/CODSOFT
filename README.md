@@ -1,1 +1,1 @@
-These codes are three out of five codes i was supposed to submit inorder to complete my CODSFOT intership.
+These codes are my CODSOFT internship codes that I am supposed to submit inorder to complete my CODSOFT internship.
