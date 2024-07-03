@@ -1,0 +1,123 @@
+import java.util.*;
+class Student
+{
+  private String name;
+  private int marks[];
+  
+  public Student (String name, int numSubjects)
+  {
+	this.name = name;
+	marks = new int[numSubjects];
+  }
+
+  // Method to input marks for each subject
+  public void inputMarks (Scanner sc)
+  {
+	for (int i = 0; i < marks.length; i++)
+	  {
+		while (true)
+		  {
+			System.out.print("Enter marks in subject " + (i + 1) + ": ");
+			int mark = sc.nextInt ();
+			if (mark >= 0 && mark <= 100)
+			  {
+				marks[i] = mark;
+				break;
+			  }
+			else
+			  {
+				System.out.println("Marks should be between 0 and 100. Please enter again.");
+			  }
+		  }
+	  }
+  }
+
+  // Method to calculate total marks
+  public int calculateTotalMarks ()
+  {
+	int sum = 0;
+  for (int mark:marks)
+	  {
+		sum += mark;
+	  }
+	return sum;
+  }
+
+  // Method to calculate percentage
+  public double calculatePercentage ()
+  {
+	int total = marks.length * 100;
+	double percentage = ((double) calculateTotalMarks () / total) * 100;
+	return percentage;
+  }
+
+  // Method to determine grade based on percentage
+  public String calculateGrade ()
+  {
+	double percentage = calculatePercentage ();
+	if (percentage >= 90)
+	  {
+		return "A+";
+	  }
+	else if (percentage >= 80)
+	  {
+		return "A";
+	  }
+	else if (percentage >= 70)
+	  {
+		return "B+";
+	  }
+	else if (percentage >= 60)
+	  {
+		return "B";
+	  }
+	else if (percentage >= 50)
+	  {
+		return "C";
+	  }
+	else if (percentage >= 40)
+	  {
+		return "D";
+	  }
+	else
+	  {
+		return "E";
+	  }
+  }
+
+  // Method to display student details and result
+  public void displayResult ()
+  {
+	int totalMarks = calculateTotalMarks ();
+	double percentage = calculatePercentage ();
+	String grade = calculateGrade ();
+
+	System.out.println ("\nSTUDENT NAME: " + name);
+	System.out.println ("TOTAL MARKS: " + totalMarks + " out of " +
+						(marks.length * 100));
+	System.out.println ("PERCENTAGE: " + percentage);
+	System.out.println ("GRADE: " + grade);
+  }
+}
+
+// Main class for execution
+public class gradecalc
+{
+  public static void main (String[]args)
+  {
+	Scanner sc = new Scanner (System.in);
+
+	  System.out.println ("Welcome\nThis code will help you calculate your percentage.");
+	  System.out.print ("First please enter your name: ");
+	  String name = sc.nextLine ();
+
+	  System.out.print ("Enter number of subjects you had: ");
+	  int numSubjects = sc.nextInt ();
+
+	  //Create a new student object
+	  Student student = new Student (name, numSubjects);
+	  student.inputMarks (sc);
+	  student.displayResult();
+	  sc.close ();
+  }
+}
