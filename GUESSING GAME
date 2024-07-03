@@ -78,6 +78,6 @@ class random
     play=play+1;
     }
     System.out.println("AWESOME\nYOU PLAYED "+play+" TIMES.");
-    System.out.println("AND YOU WON "+score+"TIMES.");
+    System.out.println("AND YOU WON "+score+" TIMES.");
     }
 }
